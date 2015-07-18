@@ -1,0 +1,13 @@
+<h1>Редактирование статьи</h1>
+
+<%= render 'form' %>
+
+<h2>Добавить похожий термин</h2>
+<%= form_for([@term, @term.relateds.build]) do |f| %>
+  <%= f.select(:term) %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Обратно к списку статей', term_path %></b>

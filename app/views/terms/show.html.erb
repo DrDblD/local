@@ -1,0 +1,22 @@
+<h1>Статья Name</h1>
+<p>
+	<strong>Name:</strong>
+	<%= @term.name %>
+</p>
+<p>
+	<strong>Description:</strong>
+	<%= @term.description %>
+</p>
+
+<h2>См. так же:</h2>
+<% @term.relateds.each do |related| %>
+	<p>
+		<%= link_to term.name, term_path(term) %>
+	</p>
+<% end %>
+
+<%= link_to 'Обратно к списку статей', terms_path %></br>
+<%= link_to 'Редактировать', edit_term_path(@term) %></br>
+<%= link_to 'Удалить', term_path(@term),
+						method: :delete,
+						data: { confirm: 'Are you sure?' } %></br>
